@@ -27,6 +27,7 @@ CRGB leds[NUM_LEDS];
 //
 // Some notes on the more abstract 'theory and practice' of
 // FastLED compact palettes are at the bottom of this file.
+CRGB rainbow[7] = {CRGB::Red,CRGB::Green,CRGB::Orange,CRGB::Purple,CRGB::Yellow,CRGB::Blue};
 
 int SWITCH_STATE = 0;
 
@@ -39,7 +40,7 @@ void setup() {
     digitalWrite(SWITCH_OUT_PIN, HIGH);
     Serial.begin(9600);
 }
-
+int count = 0;
 
 void loop()
 {
@@ -47,23 +48,22 @@ void loop()
       int red = random(0,255);
       int green = random(0,255);
       int blue = random(0,255);
-      for(int dot = 0; dot < NUM_LEDS; dot++) { 
-            //leds[dot] = CRGB::Red;
-             leds[dot].setRGB( red, green, blue);
-            FastLED.show();
-            // clear this led for the next time around the loop
-            //leds[dot] = CRGB::Black;
+      if(count >= 5){count = 0;}
+      else{count++;};
+      for(int dot = 0; dot < NUM_LEDS; dot++) {
+        leds[dot] = rainbow[count];
       }
+      FastLED.show();
       while(read_jumps()){
-          delay(10);
+        delay(10);
         }
     }
     else{
       while(!read_jumps()){
-          delay(10);
+        delay(10);
         }
-   }
-   delay(10);
+    }
+    delay(10);
 }
 
 bool read_jumps(){
