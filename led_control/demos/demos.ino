@@ -45,11 +45,6 @@ int count = 0;
 void loop()
 {
     if(read_jumps()){
-      int red = random(0,255);
-      int green = random(0,255);
-      int blue = random(0,255);
-      if(count >= 5){count = 0;}
-      else{count++;};
       for(int dot = 0; dot < NUM_LEDS; dot++) {
         leds[dot] = rainbow[count];
       }
