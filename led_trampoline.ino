@@ -5,10 +5,10 @@
 #define BRIGHTNESS  64
 #define LED_TYPE    WS2812B
 #define COLOR_ORDER GRB
-#define SWITCH_IN_PIN 35
-#define SWITCH_OUT_PIN 53
+#define SWITCH_IN_PIN 53
+#define SWITCH_OUT_PIN 35
 CRGB leds[NUM_LEDS];
-CRGB rainbow[7] = {CRGB::Red,CRGB::Green,CRGB::Orange,CRGB::Purple,CRGB::Yellow,CRGB::Blue};
+CRGB rainbow[7] = {CRGB::Red,CRGB::Green,CRGB::Orange,CRGB::Purple,CRGB::Yellow,CRGB::Blue,CRGB::Cyan};
 
 int SWITCH_STATE = 0;
 
@@ -25,6 +25,7 @@ int count = 0;
 
 void loop()
 {
+    Serial.print(digitalRead(SWITCH_IN_PIN));
     if(read_jumps()){
       for(int dot = 0; dot < NUM_LEDS; dot++) {
         leds[dot] = rainbow[count];
@@ -32,6 +33,12 @@ void loop()
       FastLED.show();
       while(read_jumps()){
         delay(10);
+        }
+      if(count < 6){
+          count++;
+        }
+      else{
+          count = 0;
         }
     }
     else{
