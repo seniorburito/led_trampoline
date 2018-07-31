@@ -1,5 +1,5 @@
 # led_trampoline
 
-![alt text](https://cdn.instructables.com/FHR/KCBM/JIOUHELH/FHRKCBMJIOUHELH.ANIMATED.LARGE.gif "Logo Title Text 1")
+![alt text](https://github.com/seniorburito/led_trampoline/tree/master/images/jumping.gif "Logo Title Text 1")
 
-[jumping]:https://cdn.instructables.com/FHR/KCBM/JIOUHELH/FHRKCBMJIOUHELH.ANIMATED.LARGE.gif
+[jumping]:https://github.com/seniorburito/led_trampoline/tree/master/images/jumping.gif
