@@ -1,3 +1,3 @@
 # led_trampoline
 
-![Jumping on the tramp]((../assets/jumping.gif?raw=true)
+![Jumping on the tramp](../assets/jumping.gif?raw=true)
