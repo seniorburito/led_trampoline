@@ -12,18 +12,18 @@
 CRGB leds[NUM_LEDS]; 
 
 void setup() {
-  delay( 3000 ); // power-up safety delay
-  FastLED.addLeds<LED_TYPE, LED_PIN, COLOR_ORDER>(leds, NUM_LEDS).setCorrection( TypicalLEDStrip );
-  FastLED.setBrightness(  BRIGHTNESS );
+	delay( 3000 ); // power-up safety delay
+	FastLED.addLeds<LED_TYPE, LED_PIN, COLOR_ORDER>(leds, NUM_LEDS).setCorrection( TypicalLEDStrip );
+	FastLED.setBrightness(  BRIGHTNESS );
 }
 
 // change the delay to make it faster or slower
 // also leds[dot] = CRGB::Blue; can be changed to any color you want
 
 void loop() {
-  for(int dot = 0; dot < NUM_LEDS; dot++) { 
-    leds[dot] = CRGB::Blue;
-    FastLED.show();
-    delay(200);
-  }
+	for(int dot = 0; dot < NUM_LEDS; dot++) { 
+		leds[dot] = CRGB::Blue;
+		FastLED.show();
+		delay(200);
+	}
 }

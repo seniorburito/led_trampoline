@@ -28,36 +28,32 @@ void setup() {
 }
 int count = 0;
 
-void loop()
-{
+void loop() {
     Serial.print(digitalRead(SWITCH_IN_PIN));
-    if(read_jumps()){ 
-      for(int dot = 0; dot < NUM_LEDS; dot++) {
-        leds[dot] = rainbow[count];
-      }
-      FastLED.show();
-      while(read_jumps()){
-        delay(10);
+    if(read_jumps()) { 
+		for(int dot = 0; dot < NUM_LEDS; dot++) {
+        	leds[dot] = rainbow[count];
+		}
+		FastLED.show();
+		while(read_jumps()){
+    		delay(10);
+		}
+		if(count < 6) {
+        	count++;
         }
-      if(count < 6){
-          count++;
-        }
-      else{
+    	else {
           count = 0;
         }
     }
-    else{
-      while(!read_jumps()){
-        delay(10);
-        }
+	else {
+    	while(!read_jumps()){
+    		delay(10);
+    	}
     }
     delay(10);
 }
 
 bool read_jumps(){ // a boolean method that returns true if it detects a jump
-    SWITCH_STATE = digitalRead(SWITCH_IN_PIN);
-    if(SWITCH_STATE){
-      return SWITCH_STATE;
-    }
-    return SWITCH_STATE;
-  }
+	SWITCH_STATE = digitalRead(SWITCH_IN_PIN);
+	return SWITCH_STATE;
+}
