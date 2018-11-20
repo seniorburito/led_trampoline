@@ -14,8 +14,8 @@ Once everything is wired use the code in the main folder
 
 Features to be added:
 
-More patterns
+* More patterns
 
-Sound
+* Sound
 
-Calorie count and display
+* Calorie count and display
